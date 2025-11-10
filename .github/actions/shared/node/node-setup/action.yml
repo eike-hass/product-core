@@ -1,0 +1,16 @@
+name: "node-setup"
+description: "Prepares a Node.js environment"
+inputs:
+  version:
+    description: "Version to install. Default: `lts/*`."
+    required: false
+    default: lts/*
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: ${{inputs.version}}
+        registry-url: 'https://registry.npmjs.org'
