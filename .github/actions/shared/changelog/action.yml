@@ -19,5 +19,5 @@ runs:
       uses: orhun/git-cliff-action@v4
       with:
         config: ../../changelog.toml
-        args: --verbose --unreleased --tag {{ inputs.tag }} --prepend {{ inputs.changelog-path }}
+        args: --verbose --unreleased --tag ${{ inputs.tag }} --prepend ${{ inputs.changelog-path }}
 

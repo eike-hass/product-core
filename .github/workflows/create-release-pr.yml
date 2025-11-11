@@ -122,7 +122,7 @@ jobs:
     #       release-target: ${{inputs.release-target}}
     #       version: ${{ inputs.tag-base }}
 
-      - name: Setup sccache
+      - name: Generate Changelog
         uses: "./.github/actions/shared/changelog"
         with:
           tag: ${{ inputs.tag-prefix }}${{ inputs.tag-base }}
