@@ -1,0 +1,23 @@
+name: "shared-changelog"
+description: "Provide a shared workflow for changelog generation"
+inputs:
+  tag:
+    description: ""
+    required: true
+  changelog-path:
+    description: ""
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Check out repository
+      uses: actions/checkout@v5
+      with:
+        fetch-depth: 0
+
+    - name: Generate a changelog
+      uses: orhun/git-cliff-action@v4
+      with:
+        config: ../../changelog.toml
+        args: --verbose --unreleased --tag {{ inputs.tag }} --prepend {{ inputs.changelog-path }}
+
